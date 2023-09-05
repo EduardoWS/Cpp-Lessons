@@ -3,7 +3,123 @@
 #include <string>
 #include <cstring>
 
-using namespace std;
+//using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+
+
+void forca(int vidas){
+    switch (vidas)
+    {
+    case 8:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    
+    case 7:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    " << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 6:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |     H" << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 5:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |     H\\" << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 4:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    /H\\" << endl;
+        cout << "  |     " << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 3:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    /H\\" << endl;
+        cout << "  |     U" << endl;
+        cout << "  |    " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 2:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    /H\\" << endl;
+        cout << "  |     U" << endl;
+        cout << "  |    / " << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 1:
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    /H\\" << endl;
+        cout << "  |     U" << endl;
+        cout << "  |    / \\" << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        break;
+    case 0:
+        system("clear");
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    /H\\" << endl;
+        cout << "  |     U" << endl;
+        cout << "  |    / \\" << endl;
+        cout << "  |===========" << endl;
+        cout << "  ||        ||" << endl;
+        system("sleep 3");
+        system("clear");
+        cout << "  _______" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     |" << endl;
+        cout << "  |     O" << endl;
+        cout << "  |    |H|" << endl;
+        cout << "  |     U" << endl;
+        cout << "  |=== | | ===" << endl;
+        cout << "  ||        ||" << endl;
+        system("sleep 3");
+        break;
+    default:
+        break;
+    }
+}
 
 int main(){
 
@@ -35,7 +151,7 @@ int main(){
         system("clear");
 
         
-        vidas = 5;
+        vidas = 8;
 
         // Preencha o array com as letras do alfabeto
         for (char letra = 'a'; letra <= 'z'; letra++) {
@@ -47,13 +163,16 @@ int main(){
 
         while(vidas>0){
             cout << "Dica: " << dica << "\n\n";
-            cout << "Vidas: " << vidas << "\n\n";
+            //cout << "Vidas: " << vidas << "\n\n";
+            forca(vidas);
+            cout << "\n  ";
             for(int i=0; i<t_palavra; i++){
+                
                 if(t[i] == '\0'){
-                    cout << "_";
+                    cout << "_" << " ";
                 }
                 else{
-                    cout << t[i];
+                    cout << t[i] << " ";
                 }
             }
 
@@ -63,7 +182,7 @@ int main(){
 
             if(tentativa.size() > 1 && tentativa != "ç"){       //chute
 
-                // Compare o array de caracteres com a string
+                // Verifica se acertou o chute
                 if (strcmp(palavra.c_str(), tentativa.c_str()) == 0) {
                     ganhou=1;
                     break;
@@ -108,8 +227,6 @@ int main(){
             system("clear");
             
 
-            // Agora, o array "alfabeto" contém todas as letras do alfabeto minúsculas
-
             // Exibindo as letras
             cout << "Tentativas: ";
             for (int i = 0; i < 26; i++) {      
@@ -146,7 +263,8 @@ int main(){
         }
         else{
             system("clear");
-            cout << vermelho << "VOCE PERDEU!!!\n\n" << cor;
+            forca(0);
+            cout << vermelho << "\nVOCE MORREU!!!\n\n" << cor;
             cout << "A palavra certa era: " << palavra << "\n\n";
             cout << "Jogar novamente? [s/n]: ";
             cin >> resp;
