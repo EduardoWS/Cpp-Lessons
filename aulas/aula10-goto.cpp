@@ -19,10 +19,10 @@ int main(){
 
     total = nota1 + nota2;
 
-    if(total>=70){
+    if(total>=5){
         cout << "\nAluno Aprovado!\n\n";
     }
-    else if(total<70 and total >= 30){
+    else if(total<5 and total >= 3){
         cout << "\nAluno de Recuperação!\n\n";
     }
     else{
