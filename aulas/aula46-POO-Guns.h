@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-// Definir a estrutura ArmaInfo fora do construtor da classe
+// Definir a estrutura ArmaInfo
 struct ArmaInfo {
     std::string nome;
     std::string categoria;
@@ -31,6 +31,9 @@ private:
     //ArmaInfo armasDisponiveis[3]; // 3 armas
     ArmaInfo armas[3];
 };
+
+
+
 
 
 Guns::Guns() {
